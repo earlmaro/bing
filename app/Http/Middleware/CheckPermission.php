@@ -20,18 +20,14 @@ class CheckPermission
      */
     public function handle(Request $request, Closure $next, $userType)
     {
-        if (strtolower($request->method()) === 'options') {
-            return $next($request);
-        }
-
         if ($this->check_access($request, $userType) !== true) {
-            return $this->abort();   
+            return $this->abort();
         }
 
         return $next($request);
     }
 
-    private function check_access($request, $userType) 
+    private function check_access($request, $userType)
     {
         if (! ($user = $request->user()) || strtolower($user->type) !== $userType) {
             return false;

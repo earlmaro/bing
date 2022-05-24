@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Http\Middleware\CheckPermission;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Routing\Router;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        $router = $this->app->make(Router::class);
+        $router->aliasMiddleware('check-permission', CheckPermission::class);
     }
 }
