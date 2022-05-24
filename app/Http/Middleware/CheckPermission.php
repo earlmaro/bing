@@ -18,18 +18,18 @@ class CheckPermission
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, $userType)
+    public function handle(Request $request, Closure $next, $userStatus)
     {
-        if ($this->check_access($request, $userType) !== true) {
+        if ($this->check_access($request, $userStatus) !== true) {
             return $this->abort();
         }
 
         return $next($request);
     }
 
-    private function check_access($request, $userType)
+    private function check_access($request, $userStatus)
     {
-        if (! ($user = $request->user()) || strtolower($user->type) !== $userType) {
+        if (! ($user = $request->user()) || strtolower($user->type) !== $userStatus) {
             return false;
         }
 
