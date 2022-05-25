@@ -8,7 +8,7 @@
             </div>
             <div class="d-flex flex-column align-items-center pb-5">
                 <i class="fa fa-cog" aria-hidden="true"></i>
-                <img src="assets/profile.jpg" alt="profile" class="profile2 mt-4" />
+                <img src="{{ URL::asset('/imgs/profile.jpg') }}" alt="profile" class="profile2 mt-4" />
                 <i class="fa fa-bars mt-4" aria-hidden="true"></i>
             </div>
         </div>

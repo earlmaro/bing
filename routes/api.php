@@ -15,12 +15,16 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 Route::post(
     '/create',
     [UserController::class, 'create_user']
+);
+Route::get(
+    '/users',
+    [UserController::class, 'get_users']
 );
 Route::middleware('auth:sanctum')->group(function () {
 
