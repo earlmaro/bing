@@ -18,11 +18,11 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('f_name', 20);
             $table->string('l_name', 20);
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('designation', 20);
             $table->string('employee_id', 20);
             $table->string('phone', 20);
-            $table->string('username', 20);
+            $table->string('username', 50);
             $table->string('password');
             $table->boolean('can_read')->default(false);
             $table->boolean('can_write')->default(false);

@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post(
+    '/create-user',
+    [UserController::class, 'create_user']
+);
+
 Route::get('/', function () {
     return view('welcome');
 });

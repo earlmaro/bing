@@ -56,7 +56,7 @@
             <i class="fa fa-bell me-2" aria-hidden="true"></i>
             <i class="fa fa-user me-2" aria-hidden="true"></i>
         </div>
-        <div class="text-end my-2"><button class="btn btn-success ms-auto">
+        <div class="text-end my-2"><button onclick="showModal()" class="btn btn-success ms-auto">
                 <p>Add User</p>
             </button></div>
         <div class="my-table">
