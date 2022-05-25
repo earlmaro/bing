@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class User extends Authenticatable
 {
@@ -18,9 +20,20 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'f_name',
+        'l_name',
         'email',
+        'role_id',
+        'designation',
+        'employee_id',
+        'phone',
+        'email',
+        'username',
         'password',
+        'can_read',
+        'can_write',
+        'can_delete',
+        'status',
     ];
 
     /**
@@ -41,4 +54,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('filter', function (Builder $builder) {
+            $builder->where('status', 'active');
+        });
+    }
 }
