@@ -80,6 +80,12 @@ class UserController extends Controller
         ]));
     }
 
+    public function get_users()
+    {
+        return view(view: 'layout.app');
+
+    }
+
 
 
 }
